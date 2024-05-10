@@ -1,6 +1,7 @@
 import { BaseAppManager } from "@flashist/appframework";
 import { Rectangle, SoundsManager } from "@flashist/flibs";
 export declare class AdvAdapter extends BaseAppManager {
+    prerollAllowed: boolean;
     protected soundsManager: SoundsManager;
     protected appState: {
         readonly app: {
