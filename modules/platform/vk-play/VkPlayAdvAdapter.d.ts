@@ -2,7 +2,7 @@ import { AdvAdapter } from "../abstract/AdvAdapter";
 import { VkPlayPlatformAdapter } from "./VkPlayPlatformAdapter";
 export declare class VkPlayAdvAdapter extends AdvAdapter {
     protected platformAdapter: VkPlayPlatformAdapter;
-    protected construction(...args: any[]): void;
+    constructor(...args: any[]);
     internalShowFullscreenAdv(): Promise<any>;
     internalShowRewardedAdv(): Promise<boolean>;
 }
