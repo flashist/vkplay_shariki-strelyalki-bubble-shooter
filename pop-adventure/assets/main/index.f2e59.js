@@ -14534,7 +14534,7 @@ window[_0x209b8f(0xf03)] = function e(_0x20026d, _0x5e5317, _0x5a7464) {
                     this['clearStage']();
                     var _0x30439f = _0x3ffa6b(0x1054) + _0x9b2456['actualStageId']
                       , _0x2d94f1 = [];
-                    _0x3237d1['default']['loadRes'](_0x30439f, cc['JsonAsset'], function(_0x551fd2, _0xbccbb7) {
+                    _0x3237d1['default']['loadRes'](_0x30439f, cc['JsonAsset'], async function(_0x551fd2, _0xbccbb7) {
                         var _0x17bdc3 = _0x3ffa6b;
                         if (_0x551fd2)
                             ;
@@ -14635,42 +14635,65 @@ window[_0x209b8f(0xf03)] = function e(_0x20026d, _0x5e5317, _0x5a7464) {
                             _0x367ee1['starStageId'] >= 0x3 && _0x2d0ec5['length'] > 0x0 && (_0x309ee8 = _0x2d0ec5[_0x2d5106['default']['random'](0x0, _0x2d0ec5[_0x17bdc3(0xabd)] - 0x1)],
                             _0x367ee1['stageBubbleList'][_0x309ee8[_0x17bdc3(0xf44)]['y']][_0x309ee8[_0x17bdc3(0xf44)]['x']][_0x17bdc3(0x235)]['push'](_0x5f2e59['GIFT_BOX'])),
                             _0x57dbe0['default']['hideLoadingTip']('tryStarStage'),
-                            _0x37f5e9['default']['tryLoadSoundClips'](),
-                            _0x367ee1['starStageId'] <= 0xa ? _0x3237d1['default']['warpSceneWithEffect1']('vStageScene', {
-                                'stageId': _0x9b2456['actualStageId'],
-                                'stageId2': _0x367ee1['starStageId'],
-                                'bloading': _0x1778ff
-                            }) : (_0x3237d1['default']['openDialog']('vGameStarDialog', {
-                                'stageId': _0x367ee1['starStageId'],
-                                'callBack': _0x1e60e7
-                            }),
-                            _0x367ee1['starStageFun'] = async function() {
+                            _0x37f5e9['default']['tryLoadSoundClips']();
 
+                            // _0x367ee1['starStageId'] <= 0xa ? _0x3237d1['default']['warpSceneWithEffect1']('vStageScene', {
+                            //
+                            // Flashist Adaptation: this is the place where we start regular levels,
+                            // If the level id is less than 10, then it will be started immediately,
+                            // Next levels will be started with the dialogue of choosing boosters.
+                            // For the levels which start with choosing boosters there is already a logic of waiting for approve from the parent app,
+                            // but for the first levels we need to add this logic here
+                            if (_0x367ee1['starStageId'] <= 10) {
                                 // Flashist Adaptation
                                 const isApproved = await GameIframeCommunicationManager.waitApproveForNextLevel();
                                 if (!isApproved) {
                                     return;
                                 }
 
-                                var _0x529d0f = _0x17bdc3;
-                                -0x1 != _0x367ee1[_0x529d0f(0xdde)][_0x529d0f(0xa76)](_0xe1d1ad['ITEMID'][_0x529d0f(0x2f1)]) && (_0x367ee1[_0x529d0f(0x280)] = 0x1,
-                                _0xe1d1ad['default'][_0x529d0f(0x68c)](_0xe1d1ad[_0x529d0f(0x7f9)]['EarthenJar_free'], -0x1)),
-                                -0x1 != _0x367ee1[_0x529d0f(0xdde)][_0x529d0f(0xa76)](_0xe1d1ad[_0x529d0f(0x7f9)]['EarthenJar_free_time']) && (_0x367ee1[_0x529d0f(0x280)] = 0x1),
-                                -0x1 != _0x367ee1[_0x529d0f(0xdde)][_0x529d0f(0xa76)](_0xe1d1ad['ITEMID'][_0x529d0f(0x8f0)]) && (_0x367ee1[_0x529d0f(0xf81)] = 0x1,
-                                _0xe1d1ad[_0x529d0f(0x1087)][_0x529d0f(0x68c)](_0xe1d1ad[_0x529d0f(0x7f9)][_0x529d0f(0x8f0)], -0x1)),
-                                -0x1 != _0x367ee1[_0x529d0f(0xdde)][_0x529d0f(0xa76)](_0xe1d1ad[_0x529d0f(0x7f9)][_0x529d0f(0x39c)]) && (_0x367ee1[_0x529d0f(0xf81)] = 0x1),
-                                -0x1 != _0x367ee1['itemIds'][_0x529d0f(0xa76)](_0xe1d1ad[_0x529d0f(0x7f9)]['three_bubble']) && _0xe1d1ad[_0x529d0f(0x1087)][_0x529d0f(0x68c)](_0xe1d1ad['ITEMID'][_0x529d0f(0x3a2)], -0x1),
-                                _0x3237d1['default']['warpSceneWithEffect1'](_0x529d0f(0xde2), {
-                                    'stageId': _0x9b2456[_0x529d0f(0xaeb)],
-                                    'stageId2': _0x367ee1['starStageId'],
-                                    'bloading': _0x1778ff
-                                });
+                                (
+                                    _0x3237d1['default']['warpSceneWithEffect1']('vStageScene', {
+                                        'stageId': _0x9b2456['actualStageId'],
+                                        'stageId2': _0x367ee1['starStageId'],
+                                        'bloading': _0x1778ff
+                                    })
+                                )
+                            } else {
+                                (
+                                    _0x3237d1['default']['openDialog']('vGameStarDialog', {
+                                        'stageId': _0x367ee1['starStageId'],
+                                        'callBack': _0x1e60e7
+                                    }),
 
-                                // Flashist Adaptation
-                                const analyticsLevelId = _0x367ee1['starStageId'];
-                                GameIframeCommunicationManager.sendLevelStartAnalyticsEvent(analyticsLevelId);
+                                    _0x367ee1['starStageFun'] = async function() {
+
+                                        // Flashist Adaptation
+                                        const isApproved = await GameIframeCommunicationManager.waitApproveForNextLevel();
+                                        if (!isApproved) {
+                                            return;
+                                        }
+
+                                        var _0x529d0f = _0x17bdc3;
+                                        -0x1 != _0x367ee1[_0x529d0f(0xdde)][_0x529d0f(0xa76)](_0xe1d1ad['ITEMID'][_0x529d0f(0x2f1)]) && (_0x367ee1[_0x529d0f(0x280)] = 0x1,
+                                        _0xe1d1ad['default'][_0x529d0f(0x68c)](_0xe1d1ad[_0x529d0f(0x7f9)]['EarthenJar_free'], -0x1)),
+                                        -0x1 != _0x367ee1[_0x529d0f(0xdde)][_0x529d0f(0xa76)](_0xe1d1ad[_0x529d0f(0x7f9)]['EarthenJar_free_time']) && (_0x367ee1[_0x529d0f(0x280)] = 0x1),
+                                        -0x1 != _0x367ee1[_0x529d0f(0xdde)][_0x529d0f(0xa76)](_0xe1d1ad['ITEMID'][_0x529d0f(0x8f0)]) && (_0x367ee1[_0x529d0f(0xf81)] = 0x1,
+                                        _0xe1d1ad[_0x529d0f(0x1087)][_0x529d0f(0x68c)](_0xe1d1ad[_0x529d0f(0x7f9)][_0x529d0f(0x8f0)], -0x1)),
+                                        -0x1 != _0x367ee1[_0x529d0f(0xdde)][_0x529d0f(0xa76)](_0xe1d1ad[_0x529d0f(0x7f9)][_0x529d0f(0x39c)]) && (_0x367ee1[_0x529d0f(0xf81)] = 0x1),
+                                        -0x1 != _0x367ee1['itemIds'][_0x529d0f(0xa76)](_0xe1d1ad[_0x529d0f(0x7f9)]['three_bubble']) && _0xe1d1ad[_0x529d0f(0x1087)][_0x529d0f(0x68c)](_0xe1d1ad['ITEMID'][_0x529d0f(0x3a2)], -0x1),
+                                        _0x3237d1['default']['warpSceneWithEffect1'](_0x529d0f(0xde2), {
+                                            'stageId': _0x9b2456[_0x529d0f(0xaeb)],
+                                            'stageId2': _0x367ee1['starStageId'],
+                                            'bloading': _0x1778ff
+                                        });
+
+                                        // Flashist Adaptation
+                                        const analyticsLevelId = _0x367ee1['starStageId'];
+                                        GameIframeCommunicationManager.sendLevelStartAnalyticsEvent(analyticsLevelId);
+                                    }
+                                );
                             }
-                            ),
+
                             _0x367ee1['bStageEnd'] = !0x1;
                         }
                     });
