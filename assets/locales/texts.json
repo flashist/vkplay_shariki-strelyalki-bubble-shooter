@@ -1,0 +1,19 @@
+{
+  "en": {
+    "texts": {
+      "gameName": "Pop Adventure",
+      "preloader": {
+        "progress": "Loading: {progress}%"
+      }
+    }
+  },
+
+  "ru": {
+    "texts": {
+      "gameName": "Шарики Стрелялки: Бабл Приключение",
+      "preloader": {
+        "progress": "Загрузка: {progress}%"
+      }
+    }
+  }
+}

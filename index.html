@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      id="viewport"
+      name="viewport"
+      content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1, minimum-scale=1"
+    />
+
+    <meta charset="UTF-8" />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/favicon/apple-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <style type="text/css">
+      html {
+        width: 100%;
+        /* This css is commented, because it will be controlled from the code (search by soft fullscreen) */
+        /* height: 110%; */
+        margin: 0px;
+      }
+
+      body {
+        height: inherit;
+        width: inherit;
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+      }
+
+      * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      #overlay {
+        position: fixed;
+        width: 100%;
+        height: 110%;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      .noselect {
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+      }
+
+      .noscroll {
+        overflow: hidden;
+      }
+    </style>
+
+    <title></title>
+
+    <!-- Yandex Games SDK -->
+    <!-- <script src="https://yandex.ru/games/sdk/v2"></script> -->
+
+    <!-- Face-Api JS -->
+    <!-- <script src="./libs/face-api/face-api.min.js"></script> -->
+
+    <!-- Bootstrap -->
+    <!-- <link href="./libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="./libs/bootstrap/js/bootstrap.min.js" crossorigin="anonymous"></script> -->
+
+    <!-- Spine Viewer -->
+    <!-- <script src="libs/spine-player/spine-player.js"></script>
+    <link rel="stylesheet" href="libs/spine-player/spine-player.css"> -->
+
+    <script>
+      // Defining flashist-global-vars (defined here to make sure we don't wait for ALL other pieces of the code to be initialized)
+      var flashistGlobalVars = {
+        openTime: Date.now(),
+      };
+    </script>
+  </head>
+
+  <body class="noselect noscroll">
+    <script src="bundle.js"></script>
+
+    <!-- <span id="loadingIcon" class="loader"></span> -->
+
+    <!-- <iframe id="childIframe" src="$koiIndexPathPath$" width="100%" height="100%" frameBorder="0" style="position: absolute; top: 0; left: 0;"></iframe> -->
+  </body>
+</html>
